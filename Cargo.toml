@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+dotenv = "0.15.0"
 tokio = { version = "1", features = ["full"] }
 
 
@@ -14,3 +15,7 @@ path = "src/bin/App/server.rs"
 [[bin]]
 name= "client"
 path="src/bin/App/client.rs"
+
+[[bin]]
+name= "lb"
+path="src/bin/load_balancer/load_balancer.rs"
