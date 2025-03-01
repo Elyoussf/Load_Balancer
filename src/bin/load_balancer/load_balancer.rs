@@ -28,13 +28,12 @@ impl LoadBalancer {
         let server = self.select_server();
         println!("Forwarding request to server: {}", server.address);
 
-        // Forward request to the selected server
+        
         let mut backend = tokio::net::TcpStream::connect(&server.address).await.unwrap();
         let mut buf = [0; 1024];
         let n = socket.read(&mut buf).await.unwrap();
         backend.write_all(&buf[..n]).await.unwrap();
 
-        // Send response back to client
         let n = backend.read(&mut buf).await.unwrap();
         socket.write_all(&buf[..n]).await.unwrap();
     }
@@ -54,7 +53,7 @@ impl LoadBalancer {
 
 #[tokio::main]
 async fn main() {
-    // Get server addresses from command-line arguments
+   
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         eprintln!("Usage: {} <server_address1> <server_address2> ...", args[0]);
@@ -66,7 +65,7 @@ async fn main() {
 
     let listener = TcpListener::bind("127.0.0.1:8080").await.unwrap();
     println!("Load balancer running on 127.0.0.1:8080");
-    
+
     loop {
         let (socket, _) = listener.accept().await.unwrap();
         let lb = lb.clone();

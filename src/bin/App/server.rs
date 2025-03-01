@@ -4,7 +4,7 @@ use std::env;
 
 #[tokio::main]
 async fn main() {
-    // Get the address from command-line arguments
+   
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         eprintln!("Usage: {} <address>", args[0]);
@@ -12,7 +12,7 @@ async fn main() {
     }
     let address = &args[1];
 
-    // Bind to the provided address
+    
     let listener = TcpListener::bind(address).await.unwrap();
     println!("Server running on {}", address);
 
