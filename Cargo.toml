@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 dotenv = "0.15.0"
 tokio = { version = "1", features = ["full"] }
-
+rand = "0.8"
 
 
 [[bin]]
