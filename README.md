@@ -64,8 +64,8 @@ cargo run --bin load_balancer -- round_robin
 
 Start multiple servers on different ports. Each server will automatically subscribe to the load balancer.
 ```bash
-cargo run --bin server -- 127.0.0.1:8081
-cargo run --bin server -- 127.0.0.1:8082
+cargo run --bin server -- 127.0.0.1:8000
+cargo run --bin server -- 127.0.0.1:8001
 ```
 
 ### 5. Run the Clients
