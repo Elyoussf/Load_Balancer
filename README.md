@@ -54,6 +54,7 @@ Replace `<strategy>` with one of the following:
 - `sticky_round_robin`
 - `weighted_round_robin`
 - `least_connections`
+- `least_time`
 
 **Example:**
 ```bash
